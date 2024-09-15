@@ -8,9 +8,5 @@
     <?php wp_head(); ?>
 </head>
 <body class="<?php body_class(); ?>">
-    
+    <h1><?php bloginfo('name');?></h1>
     <section class="bodoy_control_keyapth">
-
-    </section>
-</body>
-</html>

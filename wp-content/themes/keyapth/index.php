@@ -14,4 +14,5 @@ if ( have_posts() ) {
 		//
 	} // end while
 } // end if
+get_footer();
 ?>
