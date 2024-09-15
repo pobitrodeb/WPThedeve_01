@@ -14,5 +14,12 @@
     <!-- Bootstrap End  -->
 </head>
 <body class="<?php body_class(); ?>">
-    <h1><?php bloginfo('name');?></h1>
+  
     <section class="bodoy_control_keyapth">
+    <div class="bg-primary py-4 text-white">
+    <div class="container">
+        <div class="row">
+            <h1>This is site title: <?php bloginfo('name');?></h1>
+        </div>
+    </div>
+    </div>
