@@ -28,6 +28,22 @@ function wpdocs_filter_wp_title( $title, $sep ) {
 
 	return $title;
 }
-add_filter( 'wp_title', 'wpdocs_filter_wp_title', 10, 2 );
+	add_filter( 'wp_title', 'wpdocs_filter_wp_title', 10, 2 );
+
+	/**
+ * Add a sidebar.
+ */
+	function wpdocs_theme_slug_widgets_init() {
+		register_sidebar( array(
+			'name'          => __( 'Blog Sidebar', 'keyapth' ),
+			'id'            => 'blog-sidebar',
+			'description'   => __( 'This is blog sidebar', 'keypath' ),
+			'before_widget' => '<li id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</li>',
+			'before_title'  => '<h2 class="widgettitle">',
+			'after_title'   => '</h2>',
+		) );
+	}
+add_action( 'widgets_init', 'wpdocs_theme_slug_widgets_init' );
 
 ?>
