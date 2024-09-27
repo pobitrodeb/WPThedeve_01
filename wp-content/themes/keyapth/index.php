@@ -7,7 +7,7 @@
                 <?php
                 $args = array(
                     'post_type'             => 'post',
-                    'posts_per_page'        => 8, 
+                    'posts_per_page'        => 5, 
                     'orderby'               => 'title',
                     'order'                 => 'ASC'
                 );
