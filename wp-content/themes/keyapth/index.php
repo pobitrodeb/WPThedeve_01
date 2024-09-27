@@ -3,13 +3,14 @@
     <div class="container">
         <div class="row">
 
-        <div class="col-md-9 py-3">    
+            <div class="col-md-9 py-3">    
                 <?php
                 $args = array(
                     'post_type'             => 'post',
                     'posts_per_page'        => 5, 
-                    'orderby'               => 'title',
-                    'order'                 => 'ASC'
+                    'meta_compare'          => '=', 
+                    'meta_value'            => '3', 
+                    'meta_key'              => 'order'
                 );
                 $query = new WP_Query($args); 
 
