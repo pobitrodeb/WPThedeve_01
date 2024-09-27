@@ -7,10 +7,21 @@
                 <?php
                 $args = array(
                     'post_type'                 => 'post',
-                    // 'posts_per_page'         => 5, 
-                //    'category_name'           => 'Category 5'
-                //    'cat'                     => 5
-                   'cat'                     =>  array( '2', '4')
+                    'posts_per_page'            => 8,
+                    'tax_query'                 => array(
+                        'relation'              => 'OR',
+                        array(
+                            'taxonomy'          => 'category', 
+                            'field'             => 'slug', 
+                            'terms'             => 'Travel'
+                        ), 
+                        array(
+                            'taxonomy'          => 'tag', 
+                            'field'             => 'slug', 
+                            'terms'             => 'amazing'
+                        ), 
+                    ) 
+              
                 );
                     $query = new WP_Query($args); 
                     while($query -> have_posts()){
