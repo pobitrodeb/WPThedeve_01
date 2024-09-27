@@ -3,10 +3,23 @@
     <div class="container">
         <div class="row">
 
-            <div class="col-md-9">    
-                <?php while ( have_posts() ) : the_post(); 
-                    get_template_part('template-parts/content'); 
-                 endwhile; ?>
+        <div class="col-md-9 py-3">    
+                <?php
+                $args = array(
+                    'post_type'             => 'post',
+                    'posts_per_page'        => 8, 
+                    'orderby'               => 'title',
+                    'order'                 => 'ASC'
+                );
+                $query = new WP_Query($args); 
+
+                    while($query -> have_posts()){
+                        $query -> the_post();
+                     ?>  
+                     <li class="py-2 "><?php the_title(); ?></li>  
+                     <?php
+                     } 
+                ?>
             </div>
 
             <div class="col-md-3">
