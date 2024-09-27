@@ -8,26 +8,32 @@
                 $args = array(
                     'post_type'                 => 'post',
                     'posts_per_page'            => 8,
-                    'tax_query'                 => array(
-                        'relation'              => 'OR',
+                    'meta_query'                => array(
+                        'relation'              => 'AND', 
                         array(
-                            'taxonomy'          => 'category', 
-                            'field'             => 'slug', 
-                            'terms'             => 'Travel'
+                            'key'               => 'size', 
+                            'value'             => 'big', 
+                            'compare'           => '=', 
+
                         ), 
+                         
                         array(
-                            'taxonomy'          => 'tag', 
-                            'field'             => 'slug', 
-                            'terms'             => 'amazing'
+                            'key'               => 'price', 
+                            'value'             => 460, 
+                            'compare'           => '>', 
                         ), 
-                    ) 
+                     
+                    )
               
                 );
                     $query = new WP_Query($args); 
                     while($query -> have_posts()){
                         $query -> the_post();
                      ?>  
-                     <li class="py-2 "><?php the_title(); ?></li>  
+                     <h3 class="py-2 "><?php the_title(); ?></h3>  
+                     <p class="py-2 ">Price: <?php the_field('price'); ?></p>  
+                     <p class="py-2 ">Color: <?php the_field('color'); ?></p>  
+                     <p class="py-2 ">Size: <?php the_field('size'); ?></p>  
                      <?php
                      } 
                 ?>
